@@ -4,3 +4,6 @@ database:
   name: finance-db
   user: admin
   pass: password
+server:
+  host: 127.0.0.1
+  port: 8080
