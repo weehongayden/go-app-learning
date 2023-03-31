@@ -23,6 +23,7 @@ func main() {
 	cfg, err := config.LoadConfig()
 	if err != nil {
 		logger.LogError(log, fmt.Sprintf("Error loading config: %v", err))
+		os.Exit(1)
 	}
 
 	dsn := fmt.Sprintf("host=%s port=%d user=%s "+
@@ -32,6 +33,7 @@ func main() {
 	db, err := database.New(dsn)
 	if err != nil {
 		logger.LogError(log, fmt.Sprintf("Error connecting to database: %v", err))
+		os.Exit(1)
 	}
 
 	svr := NewServer(log, cfg, db)
@@ -39,5 +41,6 @@ func main() {
 	err = svr.Start()
 	if err != nil {
 		logger.LogError(log, fmt.Sprintf("Error starting server: %v", err))
+		os.Exit(1)
 	}
 }
