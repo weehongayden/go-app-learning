@@ -26,9 +26,8 @@ func main() {
 		os.Exit(1)
 	}
 
-	dsn := fmt.Sprintf("host=%s port=%d user=%s "+
-		"password=%s dbname=%s sslmode=disable",
-		cfg.Database.Host, cfg.Database.Port, cfg.Database.User, cfg.Database.Pass, cfg.Database.Name)
+	dsn := fmt.Sprintf("postgres://%s:%s@db:%d/%s?sslmode=disable",
+		cfg.Database.User, cfg.Database.Pass, cfg.Database.Port, cfg.Database.Name)
 
 	db, err := database.New(dsn)
 	if err != nil {

@@ -2,8 +2,8 @@ database:
   host: 127.0.0.1
   port: 5432
   name: finance-db
-  user: admin
+  user: postgres
   pass: password
 server:
-  host: 127.0.0.1
+  host: 0.0.0.0
   port: 8080
